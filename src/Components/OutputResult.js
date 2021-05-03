@@ -8,7 +8,7 @@ const OutputResult = ({result}) => {
 
     return (
         <>
-            <Result type="text" readOnly value={ (result === '0' ? '' : isNaN(result) ? 'Math Error' : result   ) }  />
+            <Result type="text" readOnly value={ (result === '0' ? '' : isNaN(result) ? 'Math Error' : result.toLocaleString('de-DE')   ) }  />
         </>
     )
 }

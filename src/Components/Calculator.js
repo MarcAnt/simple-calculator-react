@@ -28,9 +28,10 @@ const Calculator = () => {
             && value !== 'DEL' 
             && value !== 'C') {
 
-    
+                //Al tener un valor inicial de 0 se evalua si num tiene ese valor aun
                 if (num === '0') {
 
+                    //Si el valor comienza con . se le agrega un 0 delante
                     if (value === '.') {
 
                         let float = '0'+ value;
@@ -43,7 +44,7 @@ const Calculator = () => {
 
                 }else {
 
-
+                    // Cuando el input no ese y ya exista un resultado, se restean los valores 
                     if (value !== '' && result !== '') {
 
                         setNum(value);
@@ -52,7 +53,7 @@ const Calculator = () => {
                         setResult('');
                         
                     }else{
-
+                        //Al final se van stackeando los valores
                         setNum(num += value);
                     }
 
@@ -78,7 +79,7 @@ const Calculator = () => {
             && value !== 'DEL' 
             && value !== 'C') {
 
-
+                //si el valor es 0 o su valor inicial es 0, se resetea
                 if (numAc === '0') {
                     
                     setNumAc(value);
