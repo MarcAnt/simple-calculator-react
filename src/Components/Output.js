@@ -2,19 +2,20 @@ import React from 'react';
 import styled from 'styled-components';
 import OutputResult from './OutputResult';
 
-const Output = ({num, numac, result, operator}) => {
+const Output = ({num, numac, operator, result}) => {
 
-    let res = `${num.toString()}${operator.toString()}${numac === '0' ? '' : numac.toString()}`;
-    
+
+    let res;
     // Mostrar mensaje de error cuando el resultado no es un op matematica valida
     if(isNaN(result)) {
         res = 'Error';
+    }else {
+        res = `${num.toString()}${operator.toString()}${numac === '0' ? '' : numac.toString()}`; 
     }
     
     return (
         <>
             <OutputResult  result={result}   />
-
             <DisplayOperators type="text" readOnly value={res} />
         </>
     )
