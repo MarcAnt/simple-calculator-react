@@ -2,7 +2,15 @@ import React from 'react';
 import styled from 'styled-components';
 import OutputResult from './OutputResult';
 
-const Output = ({num, numac, operator, result}) => {
+export interface IProps {
+    num: string;
+    numac: string;
+    result: number;
+    operator: string;
+    handleClick?: (e: Event) => void;
+}
+
+const Output: React.FC<IProps> = ({num, numac, operator, result}) => {
 
 
     let res;
@@ -15,7 +23,7 @@ const Output = ({num, numac, operator, result}) => {
     
     return (
         <>
-            <OutputResult  result={result}   />
+            <OutputResult result={result} />
             <DisplayOperators type="text" readOnly value={res} />
         </>
     )

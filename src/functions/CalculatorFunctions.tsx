@@ -1,17 +1,17 @@
 import { useState } from "react";
 
 export default function CalculatorFunctions() {
-  let [operator, setOperator] = useState("");
-  let [num, setNum] = useState("0");
-  let [numAc, setNumAc] = useState("0");
+  let [operator, setOperator] = useState<string>("");
+  let [num, setNum] = useState<string>("0");
+  let [numAc, setNumAc] = useState<string>("0");
 
 
   //Solo para el valor final
-  const [result, setResult] = useState("");
+  const [result, setResult] = useState<string>("");
 
   // Dar valor para realizar un calculo
 
-  const setOnlyNum = (value) => {
+  const setOnlyNum = (value: string):void => {
 
     if (!operator) {
       if (
@@ -49,7 +49,7 @@ export default function CalculatorFunctions() {
   };
 
   // Dar valor al nuevo valor luego de clickear algun signo
-  const setOnlyNumAc = (value) => {
+  const setOnlyNumAc = (value: string):void => {
     if (operator) {
       if (
         value !== "=" &&
@@ -71,14 +71,14 @@ export default function CalculatorFunctions() {
   };
 
   // Obtener solo el signo
-  const setOnlyOp = (value) => {
+  const setOnlyOp = (value: string):void => {
     if (value === "+" || value === "-" || value === "/" || value === "*") {
       setOperator(value);
     }
   };
 
   // Resetear todos los valores
-  const setClear = (value) => {
+  const setClear = (value: string):void => {
     if (value === "C") {
       value = "0";
       setOperator("");
@@ -91,7 +91,7 @@ export default function CalculatorFunctions() {
   };
 
   // Eliminiar el ultimo numero del valor actual
-  const deleteInput = (value) => {
+  const deleteInput = (value: string):void => {
     if (value === "DEL") {
       if (!operator) {
         // si no hay valor, lo regresa a 0
@@ -116,15 +116,15 @@ export default function CalculatorFunctions() {
   };
 
   // Realizar los calculos
-  let res = "";
-  const compute = (sign, num, numac) => {
+  let res: number;
+  const compute = (sign: string, num: string, numac:string):void => {
     switch (sign) {
       case "+":
         res = Number(num) + Number(numac);
         // console.log(res);
 
-        setNum(res);
-        setResult(res);
+        setNum(String(res));
+        setResult(String(res));
         setNumAc("0");
         break;
 
@@ -132,8 +132,8 @@ export default function CalculatorFunctions() {
         res = Number(num) - Number(numac);
         // console.log(res);
 
-        setNum(res);
-        setResult(res);
+        setNum(String(res));
+        setResult(String(res));
         setNumAc("0");
         break;
 
@@ -141,8 +141,8 @@ export default function CalculatorFunctions() {
         res = Number(num) / Number(numac);
         // console.log(res);
 
-        setNum(res);
-        setResult(res);
+        setNum(String(res));
+        setResult(String(res));
         setNumAc("0");
         break;
 
@@ -150,8 +150,8 @@ export default function CalculatorFunctions() {
         res = Number(num) * Number(numac);
         // console.log(res);
 
-        setNum(res);
-        setResult(res);
+        setNum(String(res));
+        setResult(String(res));
         setNumAc("0");
         break;
 
@@ -161,14 +161,14 @@ export default function CalculatorFunctions() {
   };
 
   //Obtener el resultado
-  const getResult = (value) => {
+  const getResult = (value: string):void => {
     // Se activa siempre y cuando el valor en =
     if (value === "=") {
       if (operator) {
         compute(operator, num, numAc);
         // Se limpian los valores cuando solo es igual y se setea el resultado en como nuevo valor si se quiere seguir operando
         setOperator("");
-        setNum(res);
+        setNum(String(res));
         setNumAc("0");
       }
     }
@@ -180,16 +180,16 @@ export default function CalculatorFunctions() {
 
   };
 
-  
 
-  // console.log({num, numAc, result, operator});
-  const handleClick = (e) => {
-    setOnlyNum(e.target.value);
-    setOnlyNumAc(e.target.value);
-    setOnlyOp(e.target.value);
-    setClear(e.target.value);
-    deleteInput(e.target.value);
-    getResult(e.target.value);
+  const handleClick = (e: Event):void => {
+    const target = e.target as HTMLButtonElement;
+
+    setOnlyNum(target.value);
+    setOnlyNumAc(target.value);
+    setOnlyOp(target.value);
+    setClear(target.value);
+    deleteInput(target.value);
+    getResult(target.value);
   };
 
   return { handleClick, num, numAc, result, operator };

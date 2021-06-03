@@ -26,16 +26,17 @@ export const CalculatorWrapper = styled.div`
 width:35%;
 display: flex;
 justify-content: center;
-align-item: center;
+align-items: center;
 flex-direction: column;
 margin: 0 auto;
 `;
 
 export const KeysWrapper = styled.div`
-display: grid;
-gap: 5px;
-grid-template-columns: repeat(4, 1fr);
-grid-template-rows: repeat(5, 7rem);
+    display: grid;
+    gap: 5px;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(5, 7rem);
+    width: 100%;
 `;
 
 export const Button = styled.input`

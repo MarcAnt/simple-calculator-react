@@ -1,7 +1,11 @@
 import React from 'react'
 import { Button, ButtonClear, ButtonEqueal, ButtonOperator, KeysWrapper} from '../Styles/CalculatorStyles'
 
-const Keys = ({handleClick}) => {
+interface IProps {
+    handleClick: any; 
+}
+
+const Keys: React.FC<IProps> = ({handleClick}) => {
     return (
         <KeysWrapper>
             <ButtonClear type="button" value={'C'}  onClick={ (e) => handleClick(e)} />

@@ -1,14 +1,14 @@
-import React from 'react'
 import styled from 'styled-components';
 
+interface Props {
+    result: number;
+}
 
-const OutputResult = ({result}) => {
-
-   
+const OutputResult: React.FC<Props> = ({result}) => {
 
     return (
         <>
-            <Result type="text" readOnly value={ (result === '0' ? '' : isNaN(result) ? 'Math Error' : result.toLocaleString('de-DE')   ) }  />
+            <Result type="text" readOnly value={ ( String(result) === '0' ? '' : isNaN(result) ? 'Math Error' : result.toLocaleString('de-DE')   ) }  />
         </>
     )
 }

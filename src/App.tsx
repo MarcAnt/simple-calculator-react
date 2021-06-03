@@ -1,10 +1,9 @@
-// import logo from './logo.svg';
-// import './App.css';
+
 import React from 'react';
 
 import Calculator from "./Components/Calculator";
 
-function App() {
+const App: React.FC = () => {
   return (
     <div >
       <Calculator/>
