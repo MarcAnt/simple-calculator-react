@@ -1,5 +1,6 @@
 import styled, {createGlobalStyle} from 'styled-components';
 
+
 export const GlobalStyle = createGlobalStyle`
 html {
     font-size: 16px;

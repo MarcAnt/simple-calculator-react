@@ -181,16 +181,27 @@ export default function CalculatorFunctions() {
   };
 
 
-  const handleClick = (e: Event):void => {
-    const target = e.target as HTMLButtonElement;
+  // const handleClick = (e: Event):void => {
+  //   const target = e.target as HTMLButtonElement;
 
-    setOnlyNum(target.value);
-    setOnlyNumAc(target.value);
-    setOnlyOp(target.value);
-    setClear(target.value);
-    deleteInput(target.value);
-    getResult(target.value);
-  };
+  //   setOnlyNum(target.value);
+  //   setOnlyNumAc(target.value);
+  //   setOnlyOp(target.value);
+  //   setClear(target.value);
+  //   deleteInput(target.value);
+  //   getResult(target.value);
+  // };
+
+  const handleClick = (e: string):void =>{
+
+    setOnlyNum(e);
+    setOnlyNumAc(e);
+    setOnlyOp(e);
+    setClear(e);
+    deleteInput(e);
+    getResult(e);
+
+  }
 
   return { handleClick, num, numAc, result, operator };
 }
