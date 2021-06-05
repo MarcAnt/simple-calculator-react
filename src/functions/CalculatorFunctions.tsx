@@ -1,9 +1,10 @@
 import { useState } from "react";
 
 export default function CalculatorFunctions() {
-  let [operator, setOperator] = useState<string>("");
-  let [num, setNum] = useState<string>("0");
-  let [numAc, setNumAc] = useState<string>("0");
+
+  const [operator, setOperator] = useState<string>("");
+  const [num, setNum] = useState<string>("0");
+  const [numAc, setNumAc] = useState<string>("0");
 
 
   //Solo para el valor final
@@ -41,7 +42,8 @@ export default function CalculatorFunctions() {
             setResult("");
           } else {
             //Al final se van stackeando los valores
-            setNum((num += value));
+            setNum(num => num += value);
+            // setNum(num += value);
           }
         }
       }
@@ -64,7 +66,8 @@ export default function CalculatorFunctions() {
         if (numAc === "0") {
           setNumAc(value);
         } else {
-          setNumAc((numAc += value));
+          // setNumAc((numAc += value));
+          setNumAc((numAc => numAc += value));
         }
       }
     }
